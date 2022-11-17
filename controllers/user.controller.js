@@ -9,9 +9,9 @@ env.config();
 //       res.send(result);
 //     });
 //   };
-module.exports = { 
-  register : async (req, res) => {
-    try { 
+  
+const registerUser = async (req, res) => {
+    try {
       console.log("req.body: ", req.body);
   
       const newUser = new User({
@@ -22,14 +22,13 @@ module.exports = {
         berat_badan: req.body.berat_badan,
         umur: req.body.umur,
       });
+  
       await User.create(newUser);
       res.send("User add");
     } catch (err) {
       console.log("error: ", err);
-      
-    } 
     }
   };
 
- 
+  module.exports = {registerUser};
   
