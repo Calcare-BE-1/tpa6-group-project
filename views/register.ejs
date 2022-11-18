@@ -1,0 +1,60 @@
+<h1>Halaman Register</h1>
+<a
+  href="/register/add"
+  class="btn btn-primary btn-lg active mb-2"
+  role="button"
+  aria-pressed="true"
+  >Tambah Data</a
+>
+
+<% if (msg.length !== 0) { %>
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+   
+    <strong><%= msg %> </strong>
+    
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nama</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Tinggi Badan</th>
+      <th scope="col">Berat Badan</th>
+      <th scope="col">Umur</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% registers.forEach(c => { %>
+    <tr>
+      <td><%= c.nama %></td>
+      <td><%= c.email %></td>
+      <td><%= c.password %></td>
+      <td><%= c.tinggi_badan %></td>
+      <td><%= c.berat_badan %></td>
+      <td><%= c.umur %></td>
+      <td>
+        <a href="/register/edit/<%= c._id %>" class="btn btn-success badge"
+          >Edit</a
+        >
+        <!-- <a href="/contact/delete/<%= c._id %>" class="btn btn-danger badge"
+          >Delete</a
+        > -->
+
+        <form action="/register?_method=DELETE" method="post" class="d-inline">
+        <input type="hidden" name="id" value="<%= c._id %>">
+        <button type="submit" class="btn btn-danger badge" onclick="return confirm('Yakin Akan Dihapus ?')">delete</button>
+        </form>
+
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
