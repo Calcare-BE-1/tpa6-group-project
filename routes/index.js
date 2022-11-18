@@ -18,12 +18,12 @@ const userRouter  = require("./user.router");
 
 // Daftar endpoints :
 // localhost:3000/
-router.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Success",
-    desc: "Welcome to Homepage calCare",
-  });
-});
+// router.get("/", (req, res) => {
+//   res.status(200).json({
+//     message: "Success",
+//     desc: "Welcome to Homepage calCare",
+//   });
+// });
 // localhost:3000/auth
 router.use("/makanan", makananRouter);
 router.use("/user", userRouter);
