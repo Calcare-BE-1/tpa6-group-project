@@ -29,6 +29,15 @@ router.use("/makanan", makananRouter);
 // router.use('/keranjang', keranjang);
 // router.use('/hasil', hasil);
 
-
-
+// Daftar endpoints :
+// localhost:3000/
+// router.get("/", (req, res) => {
+//   res.status(200).json({
+//     message: "Success",
+//     desc: "Welcome to Homepage calCare",
+//   });
+// });
+// localhost:3000/auth
+router.use("/makanan", makananRouter);
+router.use("/user", userRouter);
 module.exports = router;
