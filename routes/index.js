@@ -3,6 +3,19 @@ const router = express.Router();
 
 const makananRouter  = require("./makanan.router");
 const userRouter  = require("./user.router");
+
+// Daftar endpoints :
+// localhost:3000/
+router.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Success",
+    desc: "Welcome to Homepage calCare",
+  });
+});
+// localhost:8000/user
+router.use("/user", userRouter);
+// localhost:8000/makanan
+router.use("/makanan", makananRouter);
 // const user = require('./user.router');
 // const makanan = require('./makanan');
 // const admin = require('./admin');
@@ -16,15 +29,6 @@ const userRouter  = require("./user.router");
 // router.use('/keranjang', keranjang);
 // router.use('/hasil', hasil);
 
-// Daftar endpoints :
-// localhost:3000/
-router.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Success",
-    desc: "Welcome to Homepage calCare",
-  });
-});
-// localhost:3000/auth
-router.use("/makanan", makananRouter);
-router.use("/user", userRouter);
+
+
 module.exports = router;
