@@ -13,26 +13,26 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
-  password:{
+  password: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
   },
-  tinggi_badan:{
+  tinggi_badan: {
     type: Number,
     required: true,
-    unique: true,
+    // unique: true,
   },
-  berat_badan:{
+  berat_badan: {
     type: Number,
     required: true,
-    unique: true,
+    // unique: true,
   },
-  umur:{
-    type: String,
+  umur: {
+    type: Number,
     required: true,
-    unique: true,
-  }
+    // unique: true,
+  },
 });
 
 const User = mongoose.model("user", userSchema);

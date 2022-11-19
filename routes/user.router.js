@@ -6,8 +6,8 @@ const {registerUser, getAllUser, deleteUserById, updateUserById, login} = requir
 // router.post("/user", user);
 // router.get("/", getAllUser);
 router.post("/register", registerUser);
-router.post("/login", login);
-router.get("/register", getAllUser);
+router.post("/login", login); //Harus dipindah ke login.router
+router.get("/register", getAllUser); //Harus dipindah ke register.router
 router.delete("/:id", deleteUserById);
 router.put("/:id", updateUserById);
 

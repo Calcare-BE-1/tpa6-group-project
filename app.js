@@ -1,38 +1,35 @@
+// Memanggil module
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
-
-const app = express();
-app.use(express.json());
+//method override
+const methodOverride = require("method-override");
+//Memanggil session cookies
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
 
 const allRoutes = require("./routes");
 const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGODB_CONNECTION_STRING2;
 
-// CONECT TO MONGODB
+// Membuat Middleware menjadi Global
+app.use(express.json());
+app.use(allRoutes);
+
+// Membuat koneksi ke MongoDB Atlass
 mongoose.connect(uri, {
   useNewUrlParser: true,
   // useCreateIndex: true,
   useUnifiedTopology: true,
 });
-
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Connect to MongoDB Success");
 });
 
-// Middleware
-app.use(allRoutes);
-
-//method override
-const methodOverride = require("method-override");
-
-//require session cookies
-const session = require("express-session");
-const cookieParser = require("cookie-parser");
-const flash = require("connect-flash");
-
-//configurasi connect flash message
+//Konfigurasi connect flash message
 app.use(cookieParser("secrect"));
 app.use(
   session({
@@ -43,14 +40,12 @@ app.use(
   })
 );
 app.use(flash());
-
-//use method override
+//Menggunakan method override
 app.use(methodOverride("_method"));
+// Menambahkan parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
-//template engine
+//Set template engine (.ejs)
 const expressLayouts = require("express-ejs-layouts");
 app.set("view engine", "ejs");
 app.use(expressLayouts);
@@ -63,9 +58,11 @@ const { body, check, validationResult } = require("express-validator");
 const { rawListeners } = require("./models/user.model");
 const { isValidObjectId } = require("mongoose");
 
+// Endpoint utama
 app.get("/", (req, res) => {
-  res.render("home", { title: "halaman home", layout: "layout/main_layout" });
+  res.render("home", { title: "calCare-BE1", layout: "layout/main_layout" });
 });
+
 app.get("/register", async (req, res) => {
   const registers = await Register.find();
   res.render("register", {
@@ -141,7 +138,6 @@ app.put(
     }),
     check("email", "Email tidak valid").isEmail(),
     // check("password", "Password salah").isStrongPassword(),
-  
   ],
   (req, res) => {
     const errors = validationResult(req);

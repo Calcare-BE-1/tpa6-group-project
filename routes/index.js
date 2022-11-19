@@ -1,43 +1,29 @@
 const express = require("express");
 const router = express.Router();
 
-const makananRouter  = require("./makanan.router");
-const userRouter  = require("./user.router");
+const adminRouter = require("./admin.router");
+const editMakananRouter = require("./edit-makanan.router");
+const hasilRouter = require("./hasil.router");
+const keranjangRouter = require("./keranjang.router");
+const makananRouter = require("./makanan.router");
+const userRouter = require("./user.router");
+const loginRouter = require("./login.router");
+const registerRouter = require("./register.router");
+const expressLayouts = require("express-ejs-layouts");
 
 // Daftar endpoints :
-// localhost:3000/
-router.get("/", (req, res) => {
-  res.status(200).json({
-    message: "Success",
-    desc: "Welcome to Homepage calCare",
-  });
-});
-// localhost:8000/user
-router.use("/user", userRouter);
-// localhost:8000/makanan
-router.use("/makanan", makananRouter);
-// const user = require('./user.router');
-// const makanan = require('./makanan');
-// const admin = require('./admin');
-// const keranjang = require('./keranjang');
-// const hasil = require('./hasil');
-
-
-// router.use('/user', user);
-// router.use('/makanan', makanan);
-// router.use('/admin', admin);
-// router.use('/keranjang', keranjang);
-// router.use('/hasil', hasil);
-
-// Daftar endpoints :
-// localhost:3000/
 // router.get("/", (req, res) => {
-//   res.status(200).json({
-//     message: "Success",
-//     desc: "Welcome to Homepage calCare",
+//     res.render("home", { title: "calCare-BE1", layout: "layout/main_layout" });
 //   });
-// });
-// localhost:3000/auth
+
+// localhost:3000/
 router.use("/makanan", makananRouter);
 router.use("/user", userRouter);
+router.use("/keranjang", keranjangRouter);
+router.use("/admin", adminRouter);
+router.use("/hasil", hasilRouter);
+router.use("/edit-makanan", editMakananRouter);
+router.use("/register", registerRouter);
+router.use("/login", loginRouter);
+
 module.exports = router;
