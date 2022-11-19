@@ -25,6 +25,7 @@ const registerUser = async (req, res) => {
         tinggi_badan: req.body.tinggi_badan,
         berat_badan: req.body.berat_badan,
         umur: req.body.umur,
+        jenis_kelamin: req.body.jenis_kelamin,
       });
   
       await User.create(newUser);

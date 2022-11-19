@@ -25,6 +25,6 @@ const userRouter  = require("./user.router");
 //   });
 // });
 // localhost:3000/auth
-router.use("/makanan", makananRouter);
+// router.use("/makanan", makananRouter);
 router.use("/user", userRouter);
 module.exports = router;

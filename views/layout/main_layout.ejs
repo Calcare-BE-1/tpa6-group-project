@@ -7,7 +7,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+<!-- font awesome cdn link  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -20,34 +21,36 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+ 
+      <a class="navbar-brand" href="#">calCare</a>
+   
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+   
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/"
-              >Home <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Makanan</a>
+            <a class="nav-link" href="/makanan">Makanan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Keranjang</a>
+            <a class="nav-link" href="/keranjang">Keranjang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register/add">Register</a>
+            <a class="nav-link" href="/hasil">Hasil</a>
           </li>
+        </ul>
+   
+        <a href="/register/add" class="btn btn-outline-success mr-3">Register</a>
+        <a href="/login" class="btn btn-outline-primary">login</a>
+   
+     </div>
+   
+  </nav>
 
           <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
