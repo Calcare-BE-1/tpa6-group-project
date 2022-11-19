@@ -1,0 +1,125 @@
+<div class="container">
+    <% if (typeof errors !='undefined') { %>
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        <% errors.forEach(e => { %>
+        <li><%= e.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+    <% } %>
+  <body>
+  </br>
+  </br>
+    <!-- <center><h4 class="text-dark font-weight-normal">Pilih Makanan  <span class="font-weight-bold"><p>Menu Makanan </p></span></h4></center> -->
+    <section class="makanan" id="makanan">
+            <center><h1 class="head"> Makanan </h1>
+            <p class="deskripsi" id="deskripsiHead">Pilihlah makanan yang kamu makan hari ini. Kebutuhan kalori harian akan </p></center>
+
+            <div class="row align-items-center">
+                <div class="col-md-1 col-md-7 text-md-start mb-4">
+                    <h5 class="fw-bold">Daftar Makanan</h5>
+                </div>
+                <div class="col-10 col-md-5">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Cari Makanan . . ." aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-primary" type="button" id="button-addon2">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- <div class="col-2 col-md-1">
+                    <a class="btn p-0 text-primary fs-2" href="/pilih-makanan/detail">
+                </div> -->
+            </div>
+                        
+            <div class="box-container" id="list-card">
+            </div>
+        </section>
+        <div class="row">
+ 
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="https://asset.kompas.com/crops/-f5twHSFFkYYRxy3Cg9VytJ1i5M=/0x298:750x798/375x240/data/photo/2020/09/25/5f6da653c1860.jpg" class="card-img-top" alt="...">
+         
+                    <div class="card-body">
+                        <center><h5 class="card-title">Ayam Goreng</h5>
+                            <p class="card-text mb-2"><small>1 potong</small></p></center>
+                            <ul class="list-inline d-flex flex-wrap justify-content-around mb-1">
+                                <li class="list-inline-item text-danger fw-bold"><small>275 Kkal</small></li>
+                                <li class="list-inline-item text-info fw-bold"><small>0.29 Kg/CO<sub>2</sub></small>
+                                </li>
+                            </ul>
+                       
+                    </div>
+         
+                    <div class="card-footer">
+                        <a href="/keranjang" class="card-link"><h5>Pilih</h5></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="https://asset.kompas.com/crops/-f5twHSFFkYYRxy3Cg9VytJ1i5M=/0x298:750x798/375x240/data/photo/2020/09/25/5f6da653c1860.jpg" class="card-img-top" alt="...">
+
+                    <div class="card-body">
+                        <center><h5 class="card-title">Ayam Goreng</h5>
+                            <p class="card-text mb-2"><small>1 potong</small></p></center>
+                        <ul class="list-inline d-flex flex-wrap justify-content-around mb-1">
+                            <li class="list-inline-item text-danger fw-bold"><small>275 Kkal</small></li>
+                            <li class="list-inline-item text-info fw-bold"><small>0.29 Kg/CO<sub>2</sub></small>
+                            </li>
+                        </ul>
+                       
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a href="/keranjang" class="card-link"><h5>Pilih</h5></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="https://asset.kompas.com/crops/-f5twHSFFkYYRxy3Cg9VytJ1i5M=/0x298:750x798/375x240/data/photo/2020/09/25/5f6da653c1860.jpg" class="card-img-top" alt="...">
+         
+                    <div class="card-body">
+                        <center><h5 class="card-title">Ayam Goreng</h5>
+                            <p class="card-text mb-2"><small>1 potong</small></p></center>
+                        <ul class="list-inline d-flex flex-wrap justify-content-around mb-1">
+                            <li class="list-inline-item text-danger fw-bold"><small>275 Kkal</small></li>
+                            <li class="list-inline-item text-info fw-bold"><small>0.29 Kg/CO<sub>2</sub></small>
+                            </li>
+                        </ul>
+                       
+                    </div>
+         
+                    <div class="card-footer">
+                        <a href="/keranjang" class="card-link"><h5>Pilih</h5></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+            <div class="card">
+                <img src="https://asset.kompas.com/crops/-f5twHSFFkYYRxy3Cg9VytJ1i5M=/0x298:750x798/375x240/data/photo/2020/09/25/5f6da653c1860.jpg" class="card-img-top" alt="...">
+     
+                <div class="card-body">
+                    <center><h5 class="card-title">Ayam Goreng</h5>
+                    <p class="card-text mb-2"><small>1 potong</small></p></center>
+                    <ul class="list-inline d-flex flex-wrap justify-content-around mb-1">
+                        <li class="list-inline-item text-danger fw-bold"><small>275 Kkal</small></li>
+                        <li class="list-inline-item text-info fw-bold"><small>0.29 Kg/CO<sub>2</sub></small>
+                        </li>
+                    </ul>
+                   
+                </div>
+     
+                <div class="card-footer">
+                    <a href="/keranjang" class="card-link"><h5>Pilih</h5></a>
+                </div>
+            </div>
+        </div>
+           
+         
+        </div>

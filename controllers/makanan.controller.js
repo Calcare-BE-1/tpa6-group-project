@@ -1,19 +1,30 @@
 // const models = require("../models");
 // const { Makanans } = models;
 
-const contohMakanan = [
-  {
-    nama: "Pisang",
-  },
-  {
-    nama: "Jeruk",
-  },
-];
+// const contohMakanan = [
+//   {
+//     nama: "Pisang",
+//   },
+//   {
+//     nama: "Jeruk",
+//   },
+// ];
 
 module.exports = {
-  getAllMakanan: (req, res) => {
-    res.json({
-      contohMakanan,
-    });
+  getAllMakanan: async (req, res) => {
+  },
+
+  addMakanan: (req, res) => {
+  
+  },
+  getMakananByID: (req, res) => {
+  
+  },
+  deleteMakanangByID: (req, res) => {
+
+  },
+
+  updateMakananByID: (req, res) => {
+
   },
 };

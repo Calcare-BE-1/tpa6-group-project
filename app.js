@@ -91,8 +91,79 @@ app.get("/login", (req, res) => {
     layout: "layout/main_layout",
   });
 });
+
+app.get("/keranjang", (req, res) => {
+  res.render("keranjang", {
+    title: "Makanan Yang di Pilih",
+    layout: "layout/main_layout",
+  });
+});
+
+app.get("/makanan", (req, res) => {
+  res.render("makanan", {
+    title: "Menu Makanan",
+    layout: "layout/main_layout",
+  });
+});
+
+app.get("/hasil", (req, res) => {
+  res.render("hasil", {
+    title: "Hasil Perhitungan Kalori",
+    layout: "layout/main_layout",
+  });
+});
+app.get("/pilih", (req, res) => {
+  res.render("user-admin", {
+    title: "Pilih login",
+    layout: "layout/main_layout",
+  });
+});
+app.get("/login/admin", (req, res) => {
+  res.render("login-admin", {
+    title: "login admin",
+    layout: "layout/main_layout",
+  });
+});
+
+
+// app.post("/home", (req, res) => {
+//   res.render("home", {
+//     title: "Login Berhasil",
+//     layout: "layout/main_layout",
+//   });
+// });
+
+// app.post(
+//   "/login",
+//   [
+//     body("email").custom(async (value) => {
+//       const duplikat = await Register.findOne({ email: value });
+//       if (duplikat) {
+//         throw new Error("email sudah digunakan!");
+//       }
+//       return true;
+//     }),
+//     check("email", "Email tidak valid").isEmail(),
+//     // check("password", "Password salah").isStrongPassword(),
+//   ],
+//   (req, res) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//       res.render("tambah-user", {
+//         title: "form tambah user",
+//         layout: "layout/main_layout",
+//         errors: errors.array(),
+//       });
+//     } else {
+//       Register.insertMany(req.body, (error, result) => {
+//         req.flash("msg", "Berhasil Login"); //untuk menambahkan flash message
+//         res.redirect("/home");
+//       });
+//     }
+//   }
+// );
 app.post(
-  "/register",
+  "/register/add",
   [
     body("email").custom(async (value) => {
       const duplikat = await Register.findOne({ email: value });
