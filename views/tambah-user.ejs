@@ -8,97 +8,98 @@
     </ul>
   </div>
   <% } %>
-
+<body>
+</br>
+</br>
+  <!-- <center><h4 class="text-dark font-weight-normal">Selamat Datang Di Calcare, Silahkan  <span class="font-weight-bold"><p>Registrasi </p></span></h4></center> -->
   <section class="register" id="register">
-    <table class="table table-striped">
-      <div id="app">
-        <section class="section">
-          <div class="d-flex flex-wrap align-items-stretch">
-            <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
-              <div class="p-4 m-3">
-                <img src="/images/calori.jpg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
-                <h4 class="text-dark font-weight-normal">CalCare <span class="font-weight-bold"><p>REGISTER </p></span></h4>
-                <form method="POST" action="/register">
-                  <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input id="nama" type="nama" class="form-control" name="nama" tabindex="-10" required autofocus>
-                    <div class="invalid-feedback">
-                      Please fill in your Nama
-                    </div>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header bg-transparent mb-0"><h5 class="text-center">Register to <span class="font-weight-bold text-primary">calCare</span></h5></div>
+            <div class="card-body">
+              <form method="POST" action="/login">
+                <div class="form-group">
+                  <label for="nama">Nama</label>
+                  <input id="nama" type="nama" class="form-control" name="nama" tabindex="-10" required autofocus>
+                  <div class="invalid-feedback">
+                    Please fill in your Nama
                   </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
-                    <div class="invalid-feedback">
-                      Please fill in your Email
-                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                  <div class="invalid-feedback">
+                    Please fill in your Email
                   </div>
-    
-                  <div class="form-group">
-                    <div class="d-block">
-                      <label for="password" class="control-label">Password</label>
-                    </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                    <div class="invalid-feedback">
-                      please fill in your password
-                    </div>
+                </div>
+  
+                <div class="form-group">
+                  <div class="d-block">
+                    <label for="password" class="control-label">Password</label>
                   </div>
-                  <div class="form-group">
-                    <label for="tinggi_badan">Tinggi Badan</label>
-                    <input id="tinggi_badan" type="tinggi_badan" class="form-control" name="tinggi_badan" tabindex="1" required autofocus>
-                    <div class="invalid-feedback">
-                      Please fill in your TB
-                    </div>
+                  <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                  <div class="invalid-feedback">
+                    please fill in your password
                   </div>
-                  <div class="form-group">
-                    <label for="berat_badan">Berat Badan</label>
-                    <input id="berat_badan" type="berat_badan" class="form-control" name="berat_badan" tabindex="1" required autofocus>
-                    <div class="invalid-feedback">
-                      Please fill in your BB
-                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="umur">Umur</label>
+                  <input id="umur" type="umur" class="form-control" name="umur" tabindex="1" required autofocus>
+                  <div class="invalid-feedback">
+                    Please fill in your Umur
                   </div>
-                  <div class="form-group">
-                    <label for="umur">Umur</label>
-                    <input id="umur" type="umur" class="form-control" name="umur" tabindex="1" required autofocus>
-                    <div class="invalid-feedback">
-                      Please fill in your Umur
-                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="jenis_kelamin">jenis kelamin</label>
+                  <!-- <input id="jenis_kelamin" type="jenis_kelamin" class="form-control" name="jenis_kelamin" tabindex="1" required autofocus> -->
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="jenis_kelamin" name="jenis_kelamin" value="Perempuan">Perempuan
+                    <label class="form-check-label" for="radio1"></label>
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" class="form-check-input" id="jenis_kelamin" name="jenis_kelamin" value="Laki-laki">Laki-laki
+                    <!-- <label class="form-check-label" for="radio2"></label>
+                  </div>
+                  <div class="invalid-feedback">
+                    Please fill in your Jenis Kelamin
+                  </div> -->
+                </div>
+
+                <div class="form-group">
+                  <label for="tinggi_badan">Tinggi Badan</label>
+                  <input id="tinggi_badan" type="tinggi_badan" class="form-control" name="tinggi_badan" tabindex="1" required autofocus>
+                  <div class="invalid-feedback">
+                    Please fill in your TB
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="berat_badan">Berat Badan</label>
+                  <input id="berat_badan" type="berat_badan" class="form-control" name="berat_badan" tabindex="1" required autofocus>
+                  <div class="invalid-feedback">
+                    Please fill in your BB
+                  </div>
+                </div>
+                
+                
                   </div>
                   <div class="form-group text-right">
-                    
-                    <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
-                      Submit
-                    </button>
-                  </div>
-    
-                  
-                </form>
-    
-              </div>
-            <!-- </div>
-            <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="E:\skilvul\tech_forimpact\Back end dev\TPA6\images\bghome.jpg">
-              <div class="absolute-bottom-left index-2">
-                <div class="text-light p-5 pb-2">
-                  <div class="mb-5 pb-3">
-                    <h1 class="mb-2 display-4 font-weight-bold">STMIK BANDUNG</h1>
-                    <h5 class="font-weight-normal text-muted-transparent">Cikutra, Bandung</h5>
-                  </div>
-                <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Puput Fatmawati & Nurul Hikmah</a> 
+                  <center>
+                  <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">Register</button>
+                </center>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
-        </section>
-      </div> -->
-    
-      <!-- General JS Scripts -->
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-      <script src="{{asset('temp')}}/assets/js/stisla.js"></script> 
-              </div>
-            </div>
-            
+        </div>
+      
+      </div>
+    </div>
+  </section>
+  </body>
+  
+        
 </div>

@@ -1,12 +1,27 @@
-const Makanan = require("../models/makanan.model");
-const env = require("dotenv");
-env.config();
+// const models = require("../models");
+// const { Makanans } = models;
+
+// const contohMakanan = [
+//   {
+//     nama: "Pisang",
+//   },
+//   {
+//     nama: "Jeruk",
+//   },
+// ];
 
 module.exports = {
-  getAllMakanan: (req, res) => {
-    res.json({
-      Makanan,
-    });
+  getAllMakanan: async (req, res) => {
+  },
+  getMakananByID: (req, res) => {
+  
+  },
+  deleteMakananByID: (req, res) => {
+
+  },
+
+  updateMakananByID: (req, res) => {
+
   },
   addMakanan: async (req, res) => {
     try {
