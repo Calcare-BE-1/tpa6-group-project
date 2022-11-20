@@ -1,19 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
-const { 
-    getAllKeranjang, 
+const {  
     getKeranjangByID, 
     addKeranjang,
-    deleteKeranjangByID,
     updateKeranjangByID,
+    deleteKeranjangByID,
 } = require('../controllers/keranjang.controller')
 
-// localhost:4000/keranjang/
-router.get("/", getAllKeranjang);
+// localhost:3000/keranjang/
+router.get("/", (req, res) => {
+    res.render("keranjang", {
+      title: "Makanan Yang di Pilih",
+      layout: "layout/main_layout",
+    });
+  })
+// localhost:3000/keranjang/
 router.get("/:id", getKeranjangByID);
 router.post("/", addKeranjang);
-router.delete("/:id", deleteKeranjangByID);
 router.put("/:id", updateKeranjangByID);
+router.delete("/:id", deleteKeranjangByID);
 
 module.exports = router;

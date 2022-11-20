@@ -1,59 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; STMIK</title>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-transparent mb-0">
+          <h5 class="text-center">Login Sebagai <span class="font-weight-bold text-primary">Admin</span></h5>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="/home">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus />
+              <div class="invalid-feedback">Please fill in your Username</div>
+            </div>
 
-  <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-  <!-- CSS Libraries -->
-  <link rel="stylesheet" href="{{asset('temp')}}/node_modules/bootstrap-social/bootstrap-social.css">
-
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="{{asset('temp')}}/assets/css/style.css">
-  <link rel="stylesheet" href="{{asset('temp')}}/assets/css/components.css">
-</head>
-
-<body>
-
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-transparent mb-0"><h5 class="text-center">Login Sebagai <span class="font-weight-bold text-primary">Admin</span></h5></div>
-          <div class="card-body">
-            <form method="POST" action="/home">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
-                <div class="invalid-feedback">
-                  Please fill in your Username
-                </div>
+            <div class="form-group">
+              <div class="d-block">
+                <label for="password" class="control-label">Password</label>
               </div>
+              <input id="password" type="password" class="form-control" name="password" tabindex="2" required />
+              <div class="invalid-feedback">please fill in your password</div>
+            </div>
 
-              <div class="form-group">
-                <div class="d-block">
-                  <label for="password" class="control-label">Password</label>
-                </div>
-                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
-                <div class="invalid-feedback">
-                  please fill in your password
-                </div>
-              </div>
-
-              <div class="form-group text-right">
-                
-                <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
+            <div class="form-group text-right">
+              <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">Login</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-</body>             
+</div>

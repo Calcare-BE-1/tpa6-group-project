@@ -1,40 +1,36 @@
+// Memanggil module
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
-
-const app = express();
-app.use(express.json());
+//method override
+const methodOverride = require("method-override");
+//Memanggil session cookies
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
 
 const allRoutes = require("./routes");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const uri = process.env.MONGODB_CONNECTION_STRING2;
 
+// Membuat Middleware menjadi global
+app.use(express.json());
+app.use(allRoutes);
+app.use(flash);
 
-// CONECT TO MONGODB
+// Membuat koneksi ke MongoDB Atlass
 mongoose.connect(uri, {
   useNewUrlParser: true,
-  // useCreateIndex: true,
+  // useCreateIndex: false,
   useUnifiedTopology: true,
 });
-
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Connect to MongoDB Success");
 });
 
-
-// Middleware
-app.use(allRoutes);
-
-//method override
-const methodOverride = require("method-override");
-
-//require session cookies
-const session = require("express-session");
-const cookieParser = require("cookie-parser");
-const flash = require("connect-flash");
-
-//configurasi connect flash message
+//Konfigurasi connect flash message
 app.use(cookieParser("secrect"));
 app.use(
   session({
@@ -45,152 +41,24 @@ app.use(
   })
 );
 app.use(flash());
-
-//use method override
+//Menggunakan method override
 app.use(methodOverride("_method"));
+// Menambahkan parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
-//template engine
+//Set template engine (.ejs)
 const expressLayouts = require("express-ejs-layouts");
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 
 //mongodbdatabase
 // require("./.env")
-const Register = require("./models/user.model");
+// const User = require("./models/user.model");
 
 const { body, check, validationResult } = require("express-validator");
 const { rawListeners } = require("./models/user.model");
 const { isValidObjectId } = require("mongoose");
-
-app.get("/", (req, res) => {
-  res.render("home", { title: "halaman home", layout: "layout/main_layout" });
-});
-app.get("/register", async (req, res) => {
-  const registers = await Register.find();
-  res.render("register", {
-    title: "register ejs",
-    registers,
-    layout: "layout/main_layout",
-    msg: req.flash("msg"), //untuk menampilkan data pesan
-  });
-});
-
-app.get("/register/add", (req, res) => {
-  res.render("tambah-user", {
-    title: "Tambah data user",
-    layout: "layout/main_layout",
-  });
-});
-
-app.get("/login", (req, res) => {
-  res.render("login", {
-    title: "Login",
-    layout: "layout/main_layout",
-  });
-});
-
-app.get("/keranjang", (req, res) => {
-  res.render("keranjang", {
-    title: "Makanan Yang di Pilih",
-    layout: "layout/main_layout",
-  });
-});
-
-app.get("/makanan", (req, res) => {
-  res.render("makanan", {
-    title: "Menu Makanan",
-    layout: "layout/main_layout",
-  });
-});
-
-app.get("/hasil", (req, res) => {
-  res.render("hasil", {
-    title: "Hasil Perhitungan Kalori",
-    layout: "layout/main_layout",
-  });
-});
-app.get("/pilih", (req, res) => {
-  res.render("user-admin", {
-    title: "Pilih login",
-    layout: "layout/main_layout",
-  });
-});
-app.get("/login/admin", (req, res) => {
-  res.render("login-admin", {
-    title: "login admin",
-    layout: "layout/main_layout",
-  });
-});
-
-
-// app.post("/home", (req, res) => {
-//   res.render("home", {
-//     title: "Login Berhasil",
-//     layout: "layout/main_layout",
-//   });
-// });
-
-// app.post(
-//   "/login",
-//   [
-//     body("email").custom(async (value) => {
-//       const duplikat = await Register.findOne({ email: value });
-//       if (duplikat) {
-//         throw new Error("email sudah digunakan!");
-//       }
-//       return true;
-//     }),
-//     check("email", "Email tidak valid").isEmail(),
-//     // check("password", "Password salah").isStrongPassword(),
-//   ],
-//   (req, res) => {
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//       res.render("tambah-user", {
-//         title: "form tambah user",
-//         layout: "layout/main_layout",
-//         errors: errors.array(),
-//       });
-//     } else {
-//       Register.insertMany(req.body, (error, result) => {
-//         req.flash("msg", "Berhasil Login"); //untuk menambahkan flash message
-//         res.redirect("/home");
-//       });
-//     }
-//   }
-// );
-app.post(
-  "/register/add",
-  [
-    body("email").custom(async (value) => {
-      const duplikat = await Register.findOne({ email: value });
-      if (duplikat) {
-        throw new Error("email sudah digunakan!");
-      }
-      return true;
-    }),
-    check("email", "Email tidak valid").isEmail(),
-    // check("password", "Password salah").isStrongPassword(),
-  ],
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      res.render("tambah-user", {
-        title: "form tambah user",
-        layout: "layout/main_layout",
-        errors: errors.array(),
-      });
-    } else {
-      Register.insertMany(req.body, (error, result) => {
-        req.flash("msg", "Data Berhasil Ditambahkan!"); //untuk menambahkan flash message
-        res.redirect("/login");
-      });
-    }
-  }
-);
+const User = require("./models/user.model");
 
 app.get("/register/edit/:id", async (req, res) => {
   const register = await Register.findById(req.params.id);
@@ -253,12 +121,12 @@ app.put(
 //   });
 // });
 
-app.delete("/register", (req, res) => {
-  Register.findByIdAndDelete(req.body.id).then((result) => {
-    req.flash("msg", "Data Berhasil Dihapus!"); //untuk menambahkan flash message
-    res.redirect("/register");
-  });
-});
+// app.delete("/register", (req, res) => {
+//   Register.findByIdAndDelete(req.body.id).then((result) => {
+//     req.flash("msg", "Data Berhasil Dihapus!"); //untuk menambahkan flash message
+//     res.redirect("/register");
+//   });
+// });
 // Server
 app.listen(PORT, () => {
   console.log(`Server BE-1 running on http://localhost:${PORT}/`);
